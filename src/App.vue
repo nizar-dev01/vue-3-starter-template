@@ -1,19 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-  <router-view></router-view>
+  <Layout>
+    <router-view></router-view>
+  </Layout>
 </template>
 
 <script>
-import HelloWorld from '@c/HelloWorld.vue'
-
+import Layout from '@l/Layout'
+import { useStore } from 'vuex'
+import { ref } from 'vue'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  setup(){
+    const
+      store = useStore(),
+      lval =  ref('test')
+    function test(){
+      store.dispatch('init/changeLayout',lval.value)
+    }
+    return {
+      test,
+      lval
+    }
   },
-  mounted(){
-    console.log('created')
+  components: {
+    Layout
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <h1>Home</h1>
+  <h1>Header Component</h1>
 </template>
 
 <script>
